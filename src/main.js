@@ -4,10 +4,18 @@ import VueRouter from 'vue-router';
 // 安装路由
 Vue.use(VueRouter);
 
+
+import moment from 'moment';
+//定义全局的过滤器
+Vue.filter('dateFormat',function(dataStr,pattern = "YYYY-MM-DD HH:mm:ss"){
+    return moment(dataStr).format(pattern);
+})
+
 // 2.1导入vue-resource
 import VueResource from 'vue-resource';
 Vue.use(VueResource);
-
+// 设置默认请求接口路径
+Vue.http.options.root = 'http://www.liulongbin.top:3005';
 
 
 // 导入mui的样式
