@@ -6,7 +6,10 @@
 
 
     <!-- 中间的路由区域 -->
-
+	<transition>
+		<router-view></router-view>
+	</transition>
+	
 
 
     <!--  底部tabber区域 -->
@@ -31,7 +34,6 @@
 
 
 
-    <h1>这是一个APP组件 </h1>
   </div>
 </template>
  
@@ -41,5 +43,21 @@
 <style lang="scss" scoped>
 .app-container {
   padding-top: 40px;
+  overflow-x: hidden;
+}
+ 
+.v-enter{
+	opacity: 0;
+	transform: translateX(100%);
+}
+.v-leave-to{
+	opacity: 0;
+	transform: translateX(-100%);
+	position: absolute;
+}
+
+.v-enter-active,
+.v-leave-active{
+	transition: all 0.5s ease;
 }
 </style>
