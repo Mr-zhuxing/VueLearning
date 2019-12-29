@@ -1,16 +1,26 @@
 <template>
     <div class="newsinfo-container">
+        <!-- 标题 -->
         <h3 class="title">{{newsinfo.title}}</h3>
         <p class = "subtitle">
             <span>发表时间:{{newsinfo.add_time | dateFormat}}</span>
             <span>点击:{{newsinfo.click}}次</span>
         </p>
         <hr>
+
+
+        <!-- 内容 -->
         <div class="content" v-html="newsinfo.content"></div>
+
+        <!-- 评论区 -->
+        <comment-box :id="this.id"></comment-box>
+
+
     </div>
 </template>
 
 <script>
+import comment from '../subcomponents/comment.vue';
 import {Toast} from 'mint-ui'
 export default {
     data(){
@@ -32,6 +42,9 @@ export default {
     },
     created(){
         this.getNewsInfo();
+    },
+    components:{
+        'comment-box':comment,
     }
 }
 </script>

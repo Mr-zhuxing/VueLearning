@@ -1,7 +1,10 @@
 <template lang="html">
   <div class = "app-container">
     <!-- 顶部Header区域 -->
-    <mt-header fixed title="VUE项目"></mt-header>
+    <mt-header fixed title="VUE项目">
+		<mt-button icon="back" slot="left">返回</mt-button>
+ 		<mt-button icon="more" slot="right"></mt-button>
+	</mt-header>
 
 
 
@@ -46,19 +49,19 @@
   padding-bottom: 50px;
   overflow-x: hidden;
 }
- 
-.v-enter{
-	opacity: 0;
-	transform: translateX(100%);
+
+.v-enter {
+  opacity: 0;
+  transform: translateX(100%);
 }
-.v-leave-to{
-	opacity: 0;
-	transform: translateX(-100%);
-	position: absolute;
+.v-leave-to {
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
 }
 
 .v-enter-active,
-.v-leave-active{
-	transition: all 0.5s ease;
+.v-leave-active {
+  transition: all 0.5s ease;
 }
 </style>
