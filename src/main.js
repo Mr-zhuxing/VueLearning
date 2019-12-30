@@ -35,14 +35,31 @@ import MintUI from 'mint-ui'
 Vue.use(MintUI)
 import 'mint-ui/lib/style.css'
 
+// 安装缩略图插件
+import VuePreview from 'vue-preview'
+// defalut install
+// Vue.use(VuePreview)
+// with parameters install
+Vue.use(VuePreview, {
+  mainClass: 'pswp--minimal--dark',
+  barsSize: {top: 0, bottom: 0},
+  captionEl: false,
+  fullscreenEl: false,
+  shareEl: false,
+  bgOpacity: 0.85,
+  tapToClose: true,
+  tapToToggleControls: false
+})
+
+
+
+
+
+
 // 导入自己的路由模块
 import router from './router.js'
 
 import app from './App.vue';
-
-
-
-
 
 var vm = new Vue({
     el:'#app',
