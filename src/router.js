@@ -9,6 +9,9 @@ import PhotoList from './components/photo/PhotoList.vue';
 import PhotoInfo from './components/photo/PhotoInfo.vue';
 import GoodsList from './components/goods/GoodsList.vue'
 import GoodsInfo from './components/goods/GoodsInfo.vue'
+import GoodsComment from './components/goods/GoodsComment.vue';
+import GoodsDesc from './components/goods/GoodsDesc.vue';
+
 
 
 //创建路由对象
@@ -57,6 +60,14 @@ var router = new VueRouter({
             path: '/home/goodsinfo/:id',
             component: GoodsInfo,
             name: 'goodsinfo',
+        },
+        {
+            path: '/home/goodsdesc/:id',
+            component: GoodsDesc
+        },
+        {
+            path: '/home/goodscomment/:id',
+            component: GoodsComment
         },
     ],
     linkActiveClass: "mui-active",
