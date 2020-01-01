@@ -2,7 +2,7 @@
   <div class = "app-container">
     <!-- 顶部Header区域 -->
     <mt-header fixed title="VUE项目">
-		<mt-button icon="back" slot="left" @click= "back">返回</mt-button>
+		<mt-button icon="back" slot="left" @click= "back" v-show="flag">返回</mt-button>
  		<mt-button icon="more" slot="right"></mt-button>
 	</mt-header>
 
@@ -27,7 +27,7 @@
 		</router-link>
 		<router-link class="mui-tab-item-zx" to="/shopcar" replace>
 				<span class="mui-icon mui-icon-extra mui-icon-extra-cart">
-					<span class="mui-badge" id="badge">0</span>
+					<span class="mui-badge" id="badge">{{$store.getters.getCarCount}}</span>
 				</span>
 				<span class="mui-tab-label">购物车</span>
 		</router-link>
@@ -45,16 +45,58 @@
 <script>
 export default {
   data() {
-    return {};
+    return {
+      flag: false
+    };
   },
   methods: {
     back() {
       // window.history.back();
       this.$router.go(-1);
-    },
+    }
   },
   created() {
     // console.log(this)
+    switch (this.$route.path) {
+      case "/home":
+        this.flag = false;
+        break;
+      case "/member":
+        this.flag = false;
+        break;
+      case "/shopcar":
+        this.flag = false;
+        break;
+      case "/search":
+        this.flag = false;
+        break;
+      default:
+        this.flag = true;
+        break;
+    }
+  },
+  watch: {
+    "$route.path": function(newVal, oldVal) {
+      // console.log(oldVal,"---->",newVal);
+      switch (newVal) {
+        case "/home":
+          this.flag = false;
+          break;
+        case "/member":
+          this.flag = false;
+          break;
+        case "/shopcar":
+          this.flag = false;
+          break;
+        case "/search":
+          this.flag = false;
+          break;
+        default:
+          this.flag = true;
+          break;
+      }
+      // console.log(this.flag);
+    }
   }
 };
 </script>

@@ -1,6 +1,6 @@
 <template>
 <!-- 需要使用它提供的api来动态设置参数 -->
-  <div class="mui-numbox" data-numbox-min="1" :data-numbox-max="max">
+  <div class="mui-numbox" data-numbox-step='1'  data-numbox-min="1" :data-numbox-max="max">
     <button class="mui-btn mui-btn-numbox-minus" type="button">-</button>
     <input
       id="test"
@@ -29,8 +29,10 @@ export default {
   ],
   watch:{
     'max':function(newVal,oldVal){
-      mui(".mui-numbox").numbox().setOption('max',newVal)
+      mui(".mui-numbox").numbox().setOption('max',newVal);
     }
+  },
+  mounted(){
   }
 };
 </script>
