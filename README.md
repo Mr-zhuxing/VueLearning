@@ -73,4 +73,26 @@
 
 ##父组件如何获取子组件的值，子组件向父组件传值(事件调用机制)
 ##事件调用本质：父组件传递方法，子组件调用这个方法，同时把数据作为参数，传递给这个方法
-##
+##设置默认请求接口路径
+Vue.http.options.root = 'http://www.liulongbin.top:3005';
+
+
+
+
+## 总结
+##App.vue是spa的主要组件，
+1. 利用VueRouter为各个页面划分路由
+使用前先导入安装，安装以后，可以在router.js中引入（引入过一次，模块在内存中有缓存）使用。导出router.js给main.js挂载。
+路由组件中 再 配置路由就是子路由。本项目中是多级路由，没有使用子路由
+2. 参数通过路径传递有两种方式 
+1.?id=1，这种是通过$route.query.id拿到
+2./:id，这种事通过$route.params.id拿到
+3. 注册全局组件
+项目用得是mint-ui，需要在main.js中引入，然后注册为全局组件，然后引入样式，这样其他组件也能使用了。
+在使用三方组件的时候需要引入它的样式，如果是js组件，还需要引入js并初始化。
+4. Vuex管理公有数据
+1.$store.state中存公有数据
+2.$store.commit('< mutation >',param) 操纵仓库中的值
+3.$store.getters.< getters > 用于获取仓库中的值
+4.项目过大应该为仓库划分不同模块
+5.可以将一些数据放到localstorage中存储，localstorage.setItem('< name >', JSON.stringify(< data >));
